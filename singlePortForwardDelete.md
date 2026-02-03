@@ -1,4 +1,4 @@
-# A remote command execution vulnerability exists in the `singlePortForwardDelete` function of the `firewall.cgi` component in the Wavlink NU516U1 (V251208) software.
+# There is a remote command execution vulnerability through the "del_flag" parameter in the "singlePortForwardDelete" function of the "firewall.cgi" component of Wavlink NU516U1 (V251208)
 
 ### Overview
 
@@ -6,7 +6,13 @@ Supplier: Wavlink
 
 Product: NU516U1 Version: WAVLINK-NU516U1-A-WO-20251208-BYFM
 
+Product usage: USB printer server
+
 Type: command injection
+
+Firmware download address: https://docs.wavlink.xyz/Firmware/?category=USB+Printer+Server&model=all
+
+Login default password: admin
 
 ### **Vulnerability description:**
 
