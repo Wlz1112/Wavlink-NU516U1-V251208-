@@ -1,4 +1,4 @@
-# The DMZ function of Wavlink NU516U1 (V251208) firewall.cgi component has a remote command execution vulnerability.
+# There is a remote command execution vulnerability through the "dmz_flag" parameter in the "DMZ" function of the "firewall.cgi" component of Wavlink NU516U1 (V251208)
 
 ### Overview
 
@@ -7,6 +7,12 @@ Supplier: Wavlink
 Product: NU516U1 Version: WAVLINK-NU516U1-A-WO-20251208-BYFM
 
 Type: command injection
+
+Product usage: USB printer server
+
+Firmware download address: https://docs.wavlink.xyz/Firmware/?category=USB+Printer+Server&model=all
+
+Login default password: admin
 
 ### Vulnerability description
 
