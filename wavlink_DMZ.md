@@ -1,3 +1,11 @@
+# **[IMPORTANT NOTICE: Distinction from CVE-2025-10959 and Patch Bypass Explanation]**
+
+This submission is **NOT a duplicate** of the previously disclosed CVE-2025-10959. Instead, it documents a clear **Patch Bypass (Incomplete Fix)** in the vendor's latest firmware.
+
+In the older firmware (V240425) associated with CVE-2025-10959, the `dmz_flag` parameter was concatenated into system commands without *any* sanitization. In the newer firmware tested in this report (V251208), the vendor attempted to patch CVE-2025-10959 by **introducing a brand-new input filter function (`sub_405B2C`)**.
+
+However, our reverse engineering reveals a critical logical flaw in this new patch: the blacklist filter successfully blocks characters like `|`, `&`, and `$`, but fatally **omits the semicolon (`;`) command separator**. This report specifically demonstrates how an attacker can exploit this newly introduced, flawed filter to bypass the vendor's security patch for CVE-2025-10959 using a semicolon injection. Because the underlying code logic has fundamentally changed (a flawed sanitization layer was added) and the exploit mechanics are different, this constitutes a distinct vulnerability resulting from an incomplete fix.
+
 # There is a remote command execution vulnerability through the "dmz_flag" parameter in the "DMZ" function of the "firewall.cgi" component of Wavlink NU516U1 (V251208)
 
 ### Overview
