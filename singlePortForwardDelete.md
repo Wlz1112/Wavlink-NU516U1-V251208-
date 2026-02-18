@@ -6,10 +6,6 @@ In the older firmware (V240425) associated with CVE-2025-10963, the `del_flag` p
 
 However, our reverse engineering reveals a critical logical flaw in this new patch: the blacklist filter successfully blocks characters like `|`, `&`, and `$`, but fatally **omits the semicolon (`;`) command separator**. This report specifically demonstrates how an attacker can exploit this newly introduced, flawed filter to bypass the vendor's security patch for CVE-2025-10963 using a semicolon injection. Because the underlying code logic has fundamentally changed (a flawed sanitization layer was added) and the exploit mechanics are different, this constitutes a distinct vulnerability resulting from an incomplete fix.
 
-## **Regarding Submission #751046:**
-I previously submitted report **#751046** (concerning the `DMZ` function), which relies on the exact same "Patch Bypass" mechanism (the flawed `sub_405B2C` filter). That submission was incorrectly marked as "Duplicate". Both #751046 and this current submission demonstrate a systemic failure in the vendor's new defense mechanism introduced in V251208. **I respectfully request that the review team re-evaluate and reinstate submission #751046 alongside this one, as both represent distinct vulnerabilities resulting from the same failed remediation logic.**
-#751046 Details
-https://github.com/Wlz1112/Wavlink-NU516U1-V251208-/blob/main/wavlink_DMZ.md
 
 # There is a remote command execution vulnerability through the "del_flag" parameter in the "singlePortForwardDelete" function of the "firewall.cgi" component of Wavlink NU516U1 (V251208)
 
